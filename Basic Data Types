@@ -1,0 +1,16 @@
+//basic cpp program to work on diffrent data types in cpp//
+#include <iostream>
+#include <cstdio>
+using namespace std;
+
+int main() {
+    int num1;
+    long num2;
+    char a;
+    float num3;
+    double num4;
+    scanf("%d %ld %c %f %lf",&num1,&num2 ,&a, &num3, &num4);
+    
+    printf("%d\n%ld\n%c\n%f\n%lf",num1,num2 ,a ,num3,num4);
+    return 0;
+}
