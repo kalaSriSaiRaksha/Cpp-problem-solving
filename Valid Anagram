@@ -1,0 +1,13 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        unordered_map<int , int>ma , md;
+        if(s.size()!=t.size())return false;
+        for(int i=0;i<s.size();i++){
+            ma[s[i]]++;
+            md[t[i]]++;
+        }for(auto x:s)
+        if(ma[x]!=md[x])return false;
+        return true;
+    }
+};
