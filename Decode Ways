@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<int>dp;
+       
+    int numDecodings(string s) {
+         dp.resize(s.size());
+        dp.assign(s.size(),-1);
+      /*  string sa={A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z};
+        int a = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26};
+        vector<int> v;
+        for(int i=0;i<s.size();i++){
+            if(sa.find(s[i])!=sa.end()){
+                v.push_back(a[i]);
+            }
+        }
+        */
+        return nways(0,s);
+    }
+    int nways(int i, string s){
+        if(i>=s.size())return 1;
+        else if(s[i]=='0')return 0;
+        else if(i==s.size()-1)return 1;
+        else if(dp[i]!=-1)return dp[i];
+        else if(s[i]=='1'||(s[i]=='2'&&(s[i+1]>=48 &&s[i+1]<=54)))
+                return dp[i]=nways(i+1,s)+nways(i+2,s);
+        else return dp[i]=nways(i+1,s);
+    }
+};
