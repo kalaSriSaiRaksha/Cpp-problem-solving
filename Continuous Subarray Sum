@@ -1,0 +1,21 @@
+class Solution {
+public:
+    bool checkSubarraySum(vector<int>& nums, int k) {
+        unordered_map<int,int>mpp;
+        int running_sum=0;
+        mpp[0]=-1;
+        for(int i=0;i<nums.size();i++){
+          running_sum+=nums[i];
+            if(k!=0) running_sum%=k;
+       
+                if(mpp.find(running_sum)!=mpp.end()){
+                   if(i-mpp[running_sum]>1) return true;
+                }
+                else{
+                    mpp[running_sum]=i;
+                }
+            }
+            return false;
+        }
+    
+};
