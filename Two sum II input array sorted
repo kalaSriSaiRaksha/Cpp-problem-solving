@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        int maxIndex = numbers.size() - 1, start = 0;
+        vector<int> index;
+        while (start < maxIndex)
+        {
+            int sum = numbers[start]+numbers[maxIndex];
+            if(sum == target)
+            {
+                index.push_back(start+1);
+                index.push_back(maxIndex+1);
+                break;
+            }
+            else if (sum > target)
+                maxIndex--;
+            else
+                start++;
+        }
+        return index;
+    }
+};
