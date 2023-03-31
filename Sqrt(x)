@@ -1,0 +1,27 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int findsqrt(int number){
+  int s=0,e=number;
+  int ans;
+  int mid=s+(e-s)/2;
+  while(s<=e){
+      if(mid*mid==number){
+          return mid;
+      }
+      else if(mid*mid>number){
+          e=mid-1;
+      }else{
+          ans=mid;
+          s=mid+1;
+      }
+      mid=s+(e-s)/2;
+  }
+  return ans;
+}
+int main(){
+    int number;
+    cin>>number;
+    int ans=findsqrt(number);
+    cout<<ans;
+}
