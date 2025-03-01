@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> applyOperations(vector<int>& nums) {
+        for(int i=1;i<nums.size();i++){
+            if(nums[i]==nums[i-1]){
+                nums[i]=0;
+                nums[i-1]= nums[i-1]*2;
+            }
+        }
+        int index =0;
+        for (int num : nums) {
+        if (num != 0) {
+            nums[index++] = num;
+        }
+        }
+        while (index < nums.size()) {
+            nums[index++] = 0;
+        }
+    return nums;
+    }
+};
